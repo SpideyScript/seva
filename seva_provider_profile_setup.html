@@ -1,0 +1,226 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.sp-root{font-family:'Inter',var(--font-sans),sans-serif;display:flex;min-height:680px;border-radius:20px;overflow:hidden;border:0.5px solid var(--color-border-tertiary)}
+.sp-left{width:44%;background:#1E40AF;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:40px 36px}
+.blob{position:absolute;border-radius:50%;opacity:.12;background:#ffffff;pointer-events:none}
+.sp-left-content{position:relative;z-index:1}
+.sp-hero-icon{width:72px;height:72px;background:rgba(255,255,255,.18);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:20px}
+.sp-left h2{font-size:24px;font-weight:800;color:#ffffff;line-height:1.25;margin-bottom:10px;letter-spacing:-0.4px}
+.sp-left p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:28px}
+.sp-feature{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);border:0.5px solid rgba(255,255,255,.18);border-radius:14px;padding:13px 16px;margin-bottom:10px;transition:background .2s}
+.sp-feature:hover{background:rgba(255,255,255,.16)}
+.sp-feat-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.sp-feat-title{font-size:13px;font-weight:700;color:#ffffff;margin-bottom:1px}
+.sp-feat-sub{font-size:12px;color:rgba(255,255,255,.65)}
+.sp-right{flex:1;background:var(--color-background-primary);display:flex;align-items:flex-start;justify-content:center;padding:32px 28px;overflow-y:auto}
+.sp-form-wrap{width:100%;max-width:380px}
+.sp-logo{font-size:20px;font-weight:800;color:#2563EB;letter-spacing:-0.5px;margin-bottom:24px}
+.sp-logo span{color:#F59E0B}
+.sp-progress{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.sp-prog-label{font-size:12px;font-weight:600;color:var(--color-text-secondary)}
+.sp-prog-track{flex:1;height:4px;border-radius:100px;background:var(--color-border-tertiary)}
+.sp-prog-fill{height:100%;width:100%;border-radius:100px;background:#2563EB}
+.sp-title{font-size:20px;font-weight:800;color:var(--color-text-primary);letter-spacing:-0.3px}
+.sp-sub{font-size:13px;color:var(--color-text-secondary);margin-top:4px;margin-bottom:22px;line-height:1.55}
+.sp-avatar-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;padding:16px;border-radius:14px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-secondary)}
+.sp-avatar-circle{width:60px;height:60px;border-radius:50%;border:2px dashed #93C5FD;background:#EFF6FF;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;overflow:hidden;flex-shrink:0}
+.sp-avatar-circle:hover{border-color:#2563EB;background:#DBEAFE}
+.sp-avatar-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:none}
+.sp-avatar-placeholder{display:flex;flex-direction:column;align-items:center;gap:3px}
+.sp-avatar-placeholder i{font-size:20px;color:#93C5FD}
+.sp-avatar-placeholder span{font-size:10px;color:#93C5FD;font-weight:600}
+.sp-upload-info .sp-upload-title{font-size:13px;font-weight:700;color:var(--color-text-primary)}
+.sp-upload-info .sp-upload-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.sp-upload-btn{margin-top:8px;padding:6px 14px;font-size:12px;font-weight:600;border-radius:8px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;transition:background .15s,border-color .15s;font-family:inherit}
+.sp-upload-btn:hover{border-color:#2563EB;color:#2563EB;background:#EFF6FF}
+.sp-field{margin-bottom:14px}
+.sp-label{font-size:12px;font-weight:700;color:var(--color-text-primary);margin-bottom:5px;display:block;letter-spacing:.01em}
+.sp-input,.sp-select,.sp-textarea{width:100%;padding:10px 14px;font-size:14px;font-family:inherit;border-radius:10px;border:1px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none}
+.sp-input:focus,.sp-select:focus,.sp-textarea:focus{outline:none;border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.sp-input::placeholder,.sp-textarea::placeholder{color:var(--color-text-tertiary)}
+.sp-select{background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2364748B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+.sp-textarea{resize:vertical;min-height:88px;line-height:1.55}
+.sp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sp-save-btn{width:100%;padding:13px;border-radius:12px;background:#2563EB;border:none;color:#ffffff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .15s,transform .1s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;letter-spacing:-0.1px}
+.sp-save-btn:hover{background:#1D4ED8}
+.sp-save-btn:active{transform:scale(0.99)}
+.sp-save-btn:disabled{background:#93C5FD;cursor:not-allowed;transform:none}
+.sp-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#ffffff;border-radius:50%;animation:spin .6s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sp-toast{position:absolute;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);background:#0F172A;color:#ffffff;padding:11px 20px;border-radius:100px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;white-space:nowrap;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:10}
+.sp-toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+.sp-toast i{color:#10B981;font-size:15px}
+.sp-checkmark{display:none;font-size:16px}
+@media(max-width:560px){.sp-left{display:none}.sp-right{border-radius:20px}}
+</style>
+
+<h2 class="sr-only">Seva provider profile setup page</h2>
+
+<div style="position:relative">
+<div class="sp-root">
+
+  <div class="sp-left">
+    <div class="blob" style="width:220px;height:220px;top:-60px;left:-60px"></div>
+    <div class="blob" style="width:160px;height:160px;bottom:-40px;right:-30px"></div>
+    <div class="blob" style="width:90px;height:90px;top:45%;left:55%"></div>
+    <div class="sp-left-content">
+      <div class="sp-hero-icon">🔧</div>
+      <h2>Build Your Professional Profile</h2>
+      <p>Help customers discover your skills and services. A great profile means more jobs.</p>
+      <div class="sp-feature">
+        <div class="sp-feat-icon">🎯</div>
+        <div>
+          <div class="sp-feat-title">Get more local jobs</div>
+          <div class="sp-feat-sub">Reach customers within 5 km</div>
+        </div>
+      </div>
+      <div class="sp-feature">
+        <div class="sp-feat-icon">🛡️</div>
+        <div>
+          <div class="sp-feat-title">Build trust with customers</div>
+          <div class="sp-feat-sub">Verified badge on your profile</div>
+        </div>
+      </div>
+      <div class="sp-feature">
+        <div class="sp-feat-icon">📈</div>
+        <div>
+          <div class="sp-feat-title">Grow your business</div>
+          <div class="sp-feat-sub">Average ₹28,000/month on Seva</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-right">
+    <div class="sp-form-wrap">
+      <div class="sp-logo">Seva<span>•</span></div>
+
+      <div class="sp-progress">
+        <span class="sp-prog-label">Profile setup · Step 1 of 1</span>
+        <div class="sp-prog-track"><div class="sp-prog-fill" id="sp-prog"></div></div>
+      </div>
+
+      <div class="sp-title">Provider profile setup</div>
+      <div class="sp-sub">Complete your profile to start receiving service requests.</div>
+
+      <div class="sp-avatar-row">
+        <div class="sp-avatar-circle" id="sp-avatar" onclick="document.getElementById('sp-file').click()" title="Upload profile photo">
+          <img id="sp-avatar-img" alt="Profile preview">
+          <div class="sp-avatar-placeholder" id="sp-avatar-ph">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span>Photo</span>
+          </div>
+        </div>
+        <div class="sp-upload-info">
+          <div class="sp-upload-title">Profile photo</div>
+          <div class="sp-upload-sub">JPG or PNG · Max 5 MB</div>
+          <button class="sp-upload-btn" onclick="document.getElementById('sp-file').click()">
+            <i class="ti ti-upload" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>Choose photo
+          </button>
+        </div>
+        <input type="file" id="sp-file" accept="image/*" style="display:none" onchange="previewPhoto(this)">
+      </div>
+
+      <div class="sp-field">
+        <label class="sp-label" for="sp-cat">Service category</label>
+        <select class="sp-select" id="sp-cat" oninput="updateProgress()">
+          <option value="">Select your trade</option>
+          <option>Electrician</option>
+          <option>Plumber</option>
+          <option>Mechanic</option>
+          <option>AC Repair</option>
+          <option>Carpenter</option>
+          <option>Painter</option>
+          <option>Appliance Repair</option>
+          <option>Computer Repair</option>
+        </select>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-field">
+          <label class="sp-label" for="sp-exp">Years of experience</label>
+          <input class="sp-input" id="sp-exp" type="number" min="0" max="50" placeholder="e.g. 5" oninput="updateProgress()">
+        </div>
+        <div class="sp-field">
+          <label class="sp-label" for="sp-city">City</label>
+          <input class="sp-input" id="sp-city" type="text" placeholder="e.g. Bhubaneswar" oninput="updateProgress()">
+        </div>
+      </div>
+
+      <div class="sp-field">
+        <label class="sp-label" for="sp-desc">Service description</label>
+        <textarea class="sp-textarea" id="sp-desc" placeholder="Describe your experience, specialties, and services you offer..." oninput="updateProgress()"></textarea>
+      </div>
+
+      <button class="sp-save-btn" id="sp-btn" onclick="saveProfile()">
+        <span id="sp-btn-text"><i class="ti ti-check" style="font-size:16px" aria-hidden="true"></i> Save profile</span>
+        <div class="sp-spinner" id="sp-spin"></div>
+        <span class="sp-checkmark" id="sp-done">✓ Saved!</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="sp-toast" id="sp-toast" role="status" aria-live="polite">
+  <i class="ti ti-circle-check" aria-hidden="true"></i>
+  Profile saved — you're ready to receive jobs!
+</div>
+</div>
+
+<script>
+function previewPhoto(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById('sp-avatar-img');
+      const ph = document.getElementById('sp-avatar-ph');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      ph.style.display = 'none';
+    };
+    reader.readAsDataURL(input.files[0]);
+    updateProgress();
+  }
+}
+
+function updateProgress() {
+  const fields = [
+    document.getElementById('sp-cat').value,
+    document.getElementById('sp-exp').value,
+    document.getElementById('sp-city').value,
+    document.getElementById('sp-desc').value
+  ];
+  const filled = fields.filter(v => v && v.trim() !== '').length;
+  const pct = Math.round((filled / fields.length) * 100);
+  document.getElementById('sp-prog').style.width = pct + '%';
+}
+
+function saveProfile() {
+  const btn = document.getElementById('sp-btn');
+  const btnText = document.getElementById('sp-btn-text');
+  const spin = document.getElementById('sp-spin');
+  const done = document.getElementById('sp-done');
+  const toast = document.getElementById('sp-toast');
+
+  btn.disabled = true;
+  btnText.style.display = 'none';
+  spin.style.display = 'block';
+
+  setTimeout(() => {
+    spin.style.display = 'none';
+    done.style.display = 'inline';
+    document.getElementById('sp-prog').style.width = '100%';
+
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 3500);
+
+    setTimeout(() => {
+      done.style.display = 'none';
+      btnText.style.display = 'flex';
+      btn.disabled = false;
+    }, 2400);
+  }, 1600);
+}
+</script>
