@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import React,{ Suspense , lazy } from "react";
-import PageLoader from './Components/PageLoader';
+import React, { Suspense, lazy } from "react";
+import PageLoader from './components/PageLoader';
 
 const lazyWithDelay = (importFunc, delay = 600) => {
-  return lazy(() => 
+  return lazy(() =>
     Promise.all([
       importFunc(),
       new Promise(resolve => setTimeout(resolve, delay))
@@ -28,30 +28,30 @@ const ProviderProfileSetup = lazy(() => import("./components/ProviderProfileSetu
 
 function AppRoutes() {
   return (
-     <Suspense fallback={<PageLoader />}>
-    <Routes>
-     
-      <Route path="/" element={<Firstpage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/sign-up" element={<Signup />} />
-      <Route path="/provider-setup" element={<ProviderProfileSetup />} />
-      <Route path="/Userdashboard" element={<User />}>
-        <Route index element={<UserDashboard />} />
-        <Route path="post-problem" element={<PostProblem />} />
-        <Route path="my-requests" element={<MyRequests />} />
-        <Route path="request-details/:id" element={<RequestDetails />} />
-      </Route>
-      <Route path="/provider-dashboard" element={<Provider />}>
-        <Route index element={<ProviderDashboard />} />
-        <Route path="near-by" element={<NearbyRequests />} />
-        <Route path="earning" element={<MyRequests />} />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
 
-        
-        <Route path="send-quote/:id" element={<SendQuote />} />
-      </Route>
-    
-    </Routes>
-     </Suspense>
+        <Route path="/" element={<Firstpage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/provider-setup" element={<ProviderProfileSetup />} />
+        <Route path="/Userdashboard" element={<User />}>
+          <Route index element={<UserDashboard />} />
+          <Route path="post-problem" element={<PostProblem />} />
+          <Route path="my-requests" element={<MyRequests />} />
+          <Route path="request-details/:id" element={<RequestDetails />} />
+        </Route>
+        <Route path="/provider-dashboard" element={<Provider />}>
+          <Route index element={<ProviderDashboard />} />
+          <Route path="near-by" element={<NearbyRequests />} />
+          <Route path="earning" element={<MyRequests />} />
+
+
+          <Route path="send-quote/:id" element={<SendQuote />} />
+        </Route>
+
+      </Routes>
+    </Suspense>
   );
 }
 

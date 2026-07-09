@@ -6,14 +6,14 @@ import './App.css';
 import './style.css';
 import Firstpage from './components/Firstpage';
 import AppRoutes from "./AppRoutes";
-import React,{ Suspense , lazy } from "react";
-import PageLoader from './Components/PageLoader';
+import React, { Suspense, lazy } from "react";
+import PageLoader from './components/PageLoader';
 
 
 function App() {
   const [count, setCount] = useState(0)
 
-  return<AppRoutes />;
+  return <AppRoutes />;
 }
 
 export default App
